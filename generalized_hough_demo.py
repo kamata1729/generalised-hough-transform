@@ -4,14 +4,14 @@ __author__ = "Adeel Ahmad"
 __email__ = "adeelahmad14@hotmail.com"
 __status__ = "Production"
 
-from skimage.io import imread, imshow
+from skimage.io import imread, imshow, imsave
 import matplotlib.pyplot as plt
 from build_reference_table import *
 from match_table import *
 from find_maxima import *
 import numpy as np
 
-images = ['Input1Ref.png', 'Input2Ref.png']
+images = ['Input1Ref.png']
 for img in images:
     refim = imread(img)
     im = imread('Input1.png')
@@ -28,7 +28,9 @@ for img in images:
     acc[ridx + 5, cidx - 5:cidx + 5] = val
 
     plt.figure(1)
-    imshow(acc)
+    print(acc.shape)
+    #imshow(acc)
+    imsave("acc2.png", acc)
     plt.show()
 
     # code for drawing bounding-box in original image at the found location...
@@ -53,4 +55,6 @@ for img in images:
     # show the image
     plt.figure(2), imshow(refim)
     plt.figure(3), imshow(im)
+    imsave("refim.png", refim)
+    imsave("im.png", im)
     plt.show()

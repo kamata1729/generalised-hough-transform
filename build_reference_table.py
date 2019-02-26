@@ -19,7 +19,7 @@ def buildRefTable(img):
     """
     table = [[0 for x in range(1)] for y in range(90)]  # creating a empty list
     # r will be calculated corresponding to this point
-    img_center = [img.shape[0]/2, img.shape[1]/2]
+    img_center = [img.shape[0]//2, img.shape[1]//2]
 
     def findAngleDistance(x1, y1):
         x2, y2 = img_center[0], img_center[1]
